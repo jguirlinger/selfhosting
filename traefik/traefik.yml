@@ -17,7 +17,7 @@ providers:
 certificatesResolvers:
   mydnschallenge:
     acme:
-      email: mail@example.com
+      email: mail@guirlinger.fr
       storage: ./letsencrypt/acme.json
       dnsChallenge:
         provider: ovh

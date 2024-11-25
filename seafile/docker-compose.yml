@@ -36,7 +36,7 @@
       environment:
         - DB_HOST=db
         - DB_ROOT_PASSWD=${DB_ROOT_PASSWD}  # Requested, the value shuold be root's password of MySQL service.
-        - SEAFILE_ADMIN_EMAIL=${SEAFILE_ADMIN_EMAIL} # Specifies Seafile admin user, default is 'me@example.com'.
+        - SEAFILE_ADMIN_EMAIL=${SEAFILE_ADMIN_EMAIL} # Specifies Seafile admin user, default is 'me@guirlinger.fr'.
         - SEAFILE_ADMIN_PASSWORD=${SEAFILE_ADMIN_PASSWORD}     # Specifies Seafile admin password, default is 'asecret'.
         - SEAFILE_SERVER_LETSENCRYPT=false   # Whether to use https or not.
         - SEAFILE_SERVER_HOSTNAME=${TRAEFIK_SEAFILE} # Specifies your host name if https is enabled.
