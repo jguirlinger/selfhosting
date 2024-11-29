@@ -89,7 +89,7 @@ Links to the following [docker-compose.yml](docker-compose.yml) and the correspo
         - "traefik.http.routers.wordpress.rule=Host(`${TRAEFIK_WORDPRESS}`)"
         - "traefik.http.routers.wordpress.entrypoints=https"
         - "traefik.http.routers.wordpress.tls=true"
-        - "traefik.http.routers.wordpress.tls.certresolver=mydnschallenge"
+        - "traefik.http.routers.wordpress.tls.certresolver=mytlschallenge"
         # Watchtower Update
         - "com.centurylinklabs.watchtower.enable=true"
 

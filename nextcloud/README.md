@@ -90,7 +90,7 @@ Links to the following [docker-compose.yml](docker-compose.yml) and the correspo
         - "traefik.http.routers.nextcloud.rule=Host(`${TRAEFIK_NEXTCLOUD}`)"
         - "traefik.http.routers.nextcloud.entrypoints=https"
         - "traefik.http.routers.nextcloud.tls=true"
-        - "traefik.http.routers.nextcloud.tls.certresolver=mydnschallenge"
+        - "traefik.http.routers.nextcloud.tls.certresolver=mytlschallenge"
         # Watchtower Update
         - "com.centurylinklabs.watchtower.enable=true"
         # Ip filtering

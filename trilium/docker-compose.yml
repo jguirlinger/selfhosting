@@ -14,7 +14,7 @@ services:
       - "traefik.http.routers.trilium.rule=Host(`${TRAEFIK_TRILIUM}`)"
       - "traefik.http.routers.trilium.entrypoints=https"
       - "traefik.http.routers.trilium.tls=true"
-      - "traefik.http.routers.trilium.tls.certresolver=mydnschallenge"
+      - "traefik.http.routers.trilium.tls.certresolver=mytlschallenge"
       # Watchtower Update
       - "com.centurylinklabs.watchtower.enable=true"
 

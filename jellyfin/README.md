@@ -69,7 +69,7 @@ Links to the following [docker-compose.yml](docker-compose.yml) and the correspo
         - "traefik.http.routers.jellyfin.rule=Host(`${TRAEFIK_JELLYFIN}`)"
         - "traefik.http.routers.jellyfin.entrypoints=https"
         - "traefik.http.routers.jellyfin.tls=true"
-        - "traefik.http.routers.jellyfin.tls.certresolver=mydnschallenge"
+        - "traefik.http.routers.jellyfin.tls.certresolver=mytlschallenge"
 
         # Watchtower Update
         - "com.centurylinklabs.watchtower.enable=true"

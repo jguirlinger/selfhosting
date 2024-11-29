@@ -15,13 +15,11 @@ providers:
     watch: true
 
 certificatesResolvers:
-  mydnschallenge:
+  mytlschallenge:
     acme:
       email: mail@guirlinger.fr
       storage: ./letsencrypt/acme.json
-      dnsChallenge:
-        provider: ovh
-        delayBeforeCheck: 10
+      tlsChallenge: {}
 
 log:
   level: INFO

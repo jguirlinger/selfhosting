@@ -66,7 +66,7 @@ Links to the following [docker-compose.yml](docker-compose.yml) and the correspo
         - "traefik.http.routers.webserver.rule=Host(`${TRAEFIK_FRESHRSS}`)"
         - "traefik.http.routers.webserver.entrypoints=https"
         - "traefik.http.routers.webserver.tls=true"
-        - "traefik.http.routers.webserver.tls.certresolver=mydnschallenge"
+        - "traefik.http.routers.webserver.tls.certresolver=mytlschallenge"
         # Watchtower Update
         - "com.centurylinklabs.watchtower.enable=true"
 

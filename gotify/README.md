@@ -69,7 +69,7 @@ Links to the following [docker-compose.yml](docker-compose.yml) and the correspo
         - "traefik.http.routers.gotify.rule=Host(`gotify.example.com`)"
         - "traefik.http.routers.gotify.entrypoints=https"
         - "traefik.http.routers.gotify.tls=true"
-        - "traefik.http.routers.gotify.tls.certresolver=mydnschallenge"
+        - "traefik.http.routers.gotify.tls.certresolver=mytlschallenge"
 
         # Watchtower Update
         - "com.centurylinklabs.watchtower.enable=true"

@@ -106,7 +106,7 @@ Links to the following [docker-compose.yml](docker-compose.yml) and the correspo
         - "traefik.http.routers.seafile.rule=Host(`${TRAEFIK_SEAFILE}`)"
         - "traefik.http.routers.seafile.entrypoints=https"
         - "traefik.http.routers.seafile.tls=true"
-        - "traefik.http.routers.seafile.tls.certresolver=mydnschallenge"
+        - "traefik.http.routers.seafile.tls.certresolver=mytlschallenge"
         # Watchtower Update
         - "com.centurylinklabs.watchtower.enable=true"
         # Ip filtering

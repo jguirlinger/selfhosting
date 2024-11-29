@@ -16,7 +16,7 @@ services:
       - "traefik.http.routers.gotify.rule=Host(`${TRAEFIK_GOTIFY}`)"
       - "traefik.http.routers.gotify.entrypoints=https"
       - "traefik.http.routers.gotify.tls=true"
-      - "traefik.http.routers.gotify.tls.certresolver=mydnschallenge"
+      - "traefik.http.routers.gotify.tls.certresolver=mytlschallenge"
 
       # Watchtower Update
       - "com.centurylinklabs.watchtower.enable=true"

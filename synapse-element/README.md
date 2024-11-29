@@ -79,7 +79,7 @@ Links to the following [docker-compose.yml](docker-compose.yml).
         - "traefik.http.routers.synapse.rule=Host(`${TRAEFIK_MATRIX}`)"
         - "traefik.http.routers.synapse.entrypoints=https"
         - "traefik.http.routers.synapse.tls=true"
-        - "traefik.http.routers.synapse.tls.certresolver=mydnschallenge"
+        - "traefik.http.routers.synapse.tls.certresolver=mytlschallenge"
 
         # Watchtower Update
         - "com.centurylinklabs.watchtower.enable=true"
@@ -99,7 +99,7 @@ Links to the following [docker-compose.yml](docker-compose.yml).
         - "traefik.http.routers.element.rule=Host(`${TRAEFIK_ELEMENT}`)"
         - "traefik.http.routers.element.entrypoints=https"
         - "traefik.http.routers.element.tls=true"
-        - "traefik.http.routers.element.tls.certresolver=mydnschallenge"
+        - "traefik.http.routers.element.tls.certresolver=mytlschallenge"
 
         # Watchtower Update
         - "com.centurylinklabs.watchtower.enable=true"

@@ -25,7 +25,7 @@ services:
       - "traefik.http.routers.transmission.rule=Host(`${TRAEFIK_TRANSMISSION}`)"
       - "traefik.http.routers.transmission.entrypoints=https"
       - "traefik.http.routers.transmission.tls=true"
-      - "traefik.http.routers.transmission.tls.certresolver=mydnschallenge"
+      - "traefik.http.routers.transmission.tls.certresolver=mytlschallenge"
       - "traefik.http.services.transmission.loadbalancer.server.port=9091"
       # Watchtower Update
       - "com.centurylinklabs.watchtower.enable=true"

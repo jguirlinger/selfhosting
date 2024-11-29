@@ -17,7 +17,7 @@ services:
       - "traefik.http.routers.freshrss.rule=Host(`${TRAEFIK_FRESHRSS}`)"
       - "traefik.http.routers.freshrss.entrypoints=https"
       - "traefik.http.routers.freshrss.tls=true"
-      - "traefik.http.routers.freshrss.tls.certresolver=mydnschallenge"
+      - "traefik.http.routers.freshrss.tls.certresolver=mytlschallenge"
       # Watchtower Update
       - "com.centurylinklabs.watchtower.enable=true"
 

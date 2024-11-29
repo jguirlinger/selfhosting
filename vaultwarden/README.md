@@ -74,7 +74,7 @@ Links to the following [docker-compose.yml](docker-compose.yml) and the correspo
         - "traefik.http.routers.bitwarden.rule=Host(`${TRAEFIK_VAULTWARDEN}`)"
         - "traefik.http.routers.bitwarden.entrypoints=https"
         - "traefik.http.routers.bitwarden.tls=true"
-        - "traefik.http.routers.bitwarden.tls.certresolver=mydnschallenge"
+        - "traefik.http.routers.bitwarden.tls.certresolver=mytlschallenge"
         # Watchtower Update
         - "com.centurylinklabs.watchtower.enable=true"
         # Ip filtering
