@@ -18,6 +18,7 @@ services:
       - ./data/dms/mail-logs/:/var/log/mail/
       - ./data/dms/config/:/tmp/docker-mailserver/
       - /etc/localtime:/etc/localtime:ro
+      - ../traefik/letsencrypt/:/etc/letsencrypt/
     restart: always
     stop_grace_period: 1m
     # Uncomment if using `ENABLE_FAIL2BAN=1`:
@@ -27,6 +28,20 @@ services:
       test: "ss --listening --tcp | grep -P 'LISTEN.+:smtp' || exit 1"
       timeout: 3s
       retries: 0
+  whoami:
+    image: traefik/whoami
+    container_name: whoami
+    networks:
+      - proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.whoami.rule=Host(`mail.guirlinger.fr`)"
+      - "traefik.http.routers.whoami.entrypoints=https"
+      - "traefik.http.routers.whoami.entrypoints=https"
+      - "traefik.http.routers.whoami.tls=true"
+      - "traefik.http.routers.whoami.tls.certresolver=mytlschallenge"
 networks:
   mailserver:
       enable_ipv6: true
+  proxy:
+    external: true
