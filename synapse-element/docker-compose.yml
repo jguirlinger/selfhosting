@@ -9,7 +9,7 @@ services:
     environment:
       - SYNAPSE_LOG_LEVEL=INFO
     volumes:
-      - ./matrix-data:/data
+      - ./data:/data
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.synapse.rule=Host(`${TRAEFIK_MATRIX}`)"
