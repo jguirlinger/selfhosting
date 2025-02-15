@@ -64,7 +64,7 @@ Links to the following [docker-compose.yml](docker-compose.yml).
       volumes:
         - ./data:/usr/local/apache2/htdocs/
       networks:
-        - proxy
+        - traefik_proxy
       labels:
         - "traefik.enable=true"
         - "traefik.http.routers.webserver.rule=Host(`www.example.com`)"
@@ -75,7 +75,7 @@ Links to the following [docker-compose.yml](docker-compose.yml).
         - "com.centurylinklabs.watchtower.enable=true"
 
   networks:
-    proxy:
+     traefik_proxy:
       external: true
   ```
 * .env

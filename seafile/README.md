@@ -96,7 +96,7 @@ Links to the following [docker-compose.yml](docker-compose.yml) and the correspo
         - SEAFILE_SERVER_HOSTNAME=${TRAEFIK_SEAFILE} # Specifies your host name if https is enabled.
         - SEAFILE_SERVICE_URL=https://${TRAEFIK_SEAFILE}
       networks:
-        - proxy
+        - traefik_proxy
         - seafile-net
       depends_on:
         - db
@@ -114,7 +114,7 @@ Links to the following [docker-compose.yml](docker-compose.yml) and the correspo
 
   networks:
     seafile-net:
-    proxy:
+     traefik_proxy:
       external: true
   ```
 * .env

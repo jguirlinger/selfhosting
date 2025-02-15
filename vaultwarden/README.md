@@ -68,7 +68,7 @@ Links to the following [docker-compose.yml](docker-compose.yml) and the correspo
         # Comment admin token to disable admin interface
         - ADMIN_TOKEN=${ADMIN_TOKEN}
       networks:
-        - proxy
+        - traefik_proxy
       labels:
         - "traefik.enable=true"
         - "traefik.http.routers.bitwarden.rule=Host(`${TRAEFIK_VAULTWARDEN}`)"
@@ -85,7 +85,7 @@ Links to the following [docker-compose.yml](docker-compose.yml) and the correspo
           tag: "Bitwarden"
 
   networks:
-    proxy:
+     traefik_proxy:
       external: true
   ```
 * .env

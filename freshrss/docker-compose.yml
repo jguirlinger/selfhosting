@@ -11,7 +11,7 @@ services:
       - 'CRON_MIN=4,34'
       - 'TZ=Europe/Paris'
     networks:
-      - proxy
+      - traefik_proxy
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.freshrss.rule=Host(`${TRAEFIK_FRESHRSS}`)"
@@ -22,5 +22,5 @@ services:
       - "com.centurylinklabs.watchtower.enable=true"
 
 networks:
-  proxy:
+   traefik_proxy:
     external: true

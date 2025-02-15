@@ -60,7 +60,7 @@ Links to the following [docker-compose.yml](docker-compose.yml) and the correspo
         - 'CRON_MIN=4,34'
         - 'TZ=Europe/Paris'
       networks:
-        - proxy
+        - traefik_proxy
       labels:
         - "traefik.enable=true"
         - "traefik.http.routers.webserver.rule=Host(`${TRAEFIK_FRESHRSS}`)"
@@ -71,7 +71,7 @@ Links to the following [docker-compose.yml](docker-compose.yml) and the correspo
         - "com.centurylinklabs.watchtower.enable=true"
 
   networks:
-    proxy:
+     traefik_proxy:
       external: true
   ```
 * .env

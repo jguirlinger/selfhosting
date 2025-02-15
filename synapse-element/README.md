@@ -84,7 +84,7 @@ Links to the following [docker-compose.yml](docker-compose.yml).
         # Watchtower Update
         - "com.centurylinklabs.watchtower.enable=true"
       networks:
-        - proxy
+        - traefik_proxy
 
     element:
       image: vectorim/element-web:latest
@@ -104,11 +104,11 @@ Links to the following [docker-compose.yml](docker-compose.yml).
         # Watchtower Update
         - "com.centurylinklabs.watchtower.enable=true"
       networks:
-        - proxy
+        - traefik_proxy
 
 
   networks:
-    proxy:
+     traefik_proxy:
       external: true
   ```
 * .env

@@ -63,7 +63,7 @@ Links to the following [docker-compose.yml](docker-compose.yml) and the correspo
       environment:
         - GOTIFY_DEFAULTUSER_PASS=${GOTIFY_DEFAULTUSER_PASS}
       networks:
-        - proxy
+        - traefik_proxy
       labels:
         - "traefik.enable=true"
         - "traefik.http.routers.gotify.rule=Host(`gotify.example.com`)"
@@ -75,7 +75,7 @@ Links to the following [docker-compose.yml](docker-compose.yml) and the correspo
         - "com.centurylinklabs.watchtower.enable=true"
 
   networks:
-    proxy:
+     traefik_proxy:
       external: true
   ```
 * .env

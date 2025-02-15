@@ -20,7 +20,7 @@ services:
       # Watchtower Update
       - "com.centurylinklabs.watchtower.enable=true"
     networks:
-      - proxy
+      - traefik_proxy
 
   element:
     image: vectorim/element-web:latest
@@ -40,9 +40,9 @@ services:
       # Watchtower Update
       - "com.centurylinklabs.watchtower.enable=true"
     networks:
-      - proxy
+      - traefik_proxy
 
 
 networks:
-  proxy:
+   traefik_proxy:
     external: true

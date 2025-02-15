@@ -10,7 +10,7 @@ services:
     environment:
       - GOTIFY_DEFAULTUSER_PASS=${GOTIFY_DEFAULTUSER_PASS}
     networks:
-      - proxy
+      - traefik_proxy
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.gotify.rule=Host(`${TRAEFIK_GOTIFY}`)"
@@ -22,5 +22,5 @@ services:
       - "com.centurylinklabs.watchtower.enable=true"
 
 networks:
-  proxy:
+   traefik_proxy:
     external: true

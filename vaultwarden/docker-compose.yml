@@ -14,7 +14,7 @@ services:
       # Comment admin token to disable admin interface
       - ADMIN_TOKEN=${ADMIN_TOKEN}
     networks:
-      - proxy
+      - traefik_proxy
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.bitwarden.rule=Host(`${TRAEFIK_VAULTWARDEN}`)"
@@ -31,5 +31,5 @@ services:
         tag: "Bitwarden"
 
 networks:
-  proxy:
+   traefik_proxy:
     external: true
