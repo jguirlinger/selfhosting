@@ -45,43 +45,6 @@ Please make sure that all the files and directories are present.
 
 Links to the following [docker-compose.yml](docker-compose.yml) and the corresponding [.env](.env).
 
-* docker-compose.yml
-  ```yaml
-  version: '3'
-
-  services:
-  freshrss:
-      image: 'freshrss/freshrss'
-      container_name: freshrss
-      restart: unless-stopped
-      volumes:
-        - "./data:/var/www/FreshRSS/data"
-      environment:
-        - 'CRON_MIN=4,34'
-        - 'TZ=Europe/Paris'
-      networks:
-        - traefik_proxy
-      labels:
-        - "traefik.enable=true"
-        - "traefik.http.routers.webserver.rule=Host(`${TRAEFIK_FRESHRSS}`)"
-        - "traefik.http.routers.webserver.entrypoints=https"
-        - "traefik.http.routers.webserver.tls=true"
-        - "traefik.http.routers.webserver.tls.certresolver=mytlschallenge"
-        # Watchtower Update
-        - "com.centurylinklabs.watchtower.enable=true"
-
-  networks:
-     traefik_proxy:
-      external: true
-  ```
-* .env
-  ```ini
-  TRAEFIK_FRESHRSS=freshrss.example.com
-  TZ=Europe/Paris
-  ```
-
-The docker-compose contains only one service using the freshrss image.
-
 # Usage
 
 ## Requirements

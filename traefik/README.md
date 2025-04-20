@@ -99,7 +99,7 @@ Links to the following [docker-compose.yml](docker-compose.yml) and the correspo
         - OVH_APPLICATION_SECRET=${OVH_APPLICATION_SECRET}
         - OVH_CONSUMER_KEY=${OVH_CONSUMER_KEY}
       networks:
-        - traefik_proxy
+        - proxy
       labels:
         - "traefik.enable=true"
 
@@ -134,13 +134,13 @@ Links to the following [docker-compose.yml](docker-compose.yml) and the correspo
       environment:
         CONTAINERS: 1
       networks:
-        - traefik_proxy
+        - proxy
       labels:
         # Watchtower Update
         - "com.centurylinklabs.watchtower.enable=true"
 
   networks:
-     traefik_proxy:
+     proxy:
       external: true
   ```
 * .env

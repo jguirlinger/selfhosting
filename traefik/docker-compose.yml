@@ -12,13 +12,8 @@ services:
       - "./traefik.yml:/traefik.yml:ro"
       - "./rules:/rules:ro"
       - "./letsencrypt:/letsencrypt"
-    environment:
-      - OVH_ENDPOINT=${OVH_ENDPOINT}
-      - OVH_APPLICATION_KEY=${OVH_APPLICATION_KEY}
-      - OVH_APPLICATION_SECRET=${OVH_APPLICATION_SECRET}
-      - OVH_CONSUMER_KEY=${OVH_CONSUMER_KEY}
     networks:
-      - traefik_proxy
+      - proxy
     labels:
       - "traefik.enable=true"
 
@@ -30,16 +25,6 @@ services:
       # middleware redirect
       - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
       - "traefik.http.middlewares.redirect-to-https.redirectscheme.permanent=true"
-
-      # redirect root to www
-      - "traefik.http.routers.root.rule=host(`${DOMAIN}.${TLD}`)"
-      - "traefik.http.routers.root.entrypoints=https"
-      - "traefik.http.routers.root.middlewares=redirect-root-to-www"
-      - "traefik.http.routers.root.tls=true"
-
-      # middleware redirect root to www
-      - "traefik.http.middlewares.redirect-root-to-www.redirectregex.regex=^https://${DOMAIN}\\.${TLD}/(.*)"
-      - "traefik.http.middlewares.redirect-root-to-www.redirectregex.replacement=https://www.${DOMAIN}.${TLD}/$${1}"
 
       # Watchtower Update
       - "com.centurylinklabs.watchtower.enable=true"
@@ -53,11 +38,12 @@ services:
     environment:
       CONTAINERS: 1
     networks:
-      - traefik_proxy
+      - proxy
     labels:
       # Watchtower Update
       - "com.centurylinklabs.watchtower.enable=true"
 
 networks:
-   traefik_proxy:
-    enable_ipv6: true
+  proxy:
+    name: proxy
+    enable_ipv6: false

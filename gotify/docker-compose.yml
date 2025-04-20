@@ -1,5 +1,3 @@
-version: "3"
-
 services:
   gotify:
     image: gotify/server
@@ -10,7 +8,7 @@ services:
     environment:
       - GOTIFY_DEFAULTUSER_PASS=${GOTIFY_DEFAULTUSER_PASS}
     networks:
-      - traefik_proxy
+      - proxy
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.gotify.rule=Host(`${TRAEFIK_GOTIFY}`)"
@@ -22,5 +20,5 @@ services:
       - "com.centurylinklabs.watchtower.enable=true"
 
 networks:
-   traefik_proxy:
+   proxy:
     external: true

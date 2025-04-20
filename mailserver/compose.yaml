@@ -5,13 +5,13 @@ services:
     hostname: mail.guirlinger.fr
     env_file: mailserver.env
     ports:
-      - "25:25"    # SMTP  (explicit TLS => STARTTLS, Authentication is DISABLED => use port 465/587 instead)
-      - "143:143"  # IMAP4 (explicit TLS => STARTTLS)
-      - "465:465"  # ESMTP (implicit TLS)
-      - "587:587"  # ESMTP (explicit TLS => STARTTLS)
-      - "993:993"  # IMAP4 (implicit TLS)
+      - "0.0.0.0:25:25"    # SMTP  (explicit TLS => STARTTLS, Authentication is DISABLED => use port 465/587 instead)
+      - "0.0.0.0:143:143"  # IMAP4 (explicit TLS => STARTTLS)
+      - "0.0.0.0:465:465"  # ESMTP (implicit TLS)
+      - "0.0.0.0:587:587"  # ESMTP (explicit TLS => STARTTLS)
+      - "0.0.0.0:993:993"  # IMAP4 (implicit TLS)
     networks:
-      - traefik_proxy
+      - proxy
     volumes:
       - ./data/dms/mail-data/:/var/mail/
       - ./data/dms/mail-state/:/var/mail-state/
@@ -32,7 +32,7 @@ services:
     image: traefik/whoami
     container_name: whoami
     networks:
-      - traefik_proxy
+      - proxy
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.whoami.rule=Host(`mail.guirlinger.fr`)"
@@ -41,5 +41,5 @@ services:
       - "traefik.http.routers.whoami.tls=true"
       - "traefik.http.routers.whoami.tls.certresolver=mytlschallenge"
 networks:
-   traefik_proxy:
+   proxy:
     external: true

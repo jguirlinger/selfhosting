@@ -52,32 +52,6 @@ In this example, the website will only display a Hello World as you can see in t
 ## docker-compose
 Links to the following [docker-compose.yml](docker-compose.yml).
 
-* docker-compose.yml
-  ```yaml
-  version: '3'
-
-  services:
-  webserver:
-      image: 'httpd:2.4'
-      container_name: webserver
-      restart: unless-stopped
-      volumes:
-        - ./data:/usr/local/apache2/htdocs/
-      networks:
-        - traefik_proxy
-      labels:
-        - "traefik.enable=true"
-        - "traefik.http.routers.webserver.rule=Host(`www.example.com`)"
-        - "traefik.http.routers.webserver.entrypoints=https"
-        - "traefik.http.routers.webserver.tls=true"
-        - "traefik.http.routers.webserver.tls.certresolver=mytlschallenge"
-        # Watchtower Update
-        - "com.centurylinklabs.watchtower.enable=true"
-
-  networks:
-     traefik_proxy:
-      external: true
-  ```
 * .env
   ```ini
   TRAEFIK_WEBSERVER=www.example.com
