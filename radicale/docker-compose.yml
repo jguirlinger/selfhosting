@@ -2,6 +2,7 @@ services:
   radicale:
     image: xlrl/radicale:latest
     container_name: radicale
+    restart: unless-stopped
     environment:
       RADICALE_USER: ${USERNAME}
       RADICALE_PASS: ${PASSWORD}
