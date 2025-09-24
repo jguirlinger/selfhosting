@@ -37,7 +37,6 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.whoami.rule=Host(`mail.guirlinger.fr`)"
       - "traefik.http.routers.whoami.entrypoints=https"
-      - "traefik.http.routers.whoami.entrypoints=https"
       - "traefik.http.routers.whoami.tls=true"
       - "traefik.http.routers.whoami.tls.certresolver=mytlschallenge"
 networks:
